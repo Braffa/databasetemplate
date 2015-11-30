@@ -50,13 +50,15 @@ public class TestHsqlRegisteredUser {
 			hsqlRegisteredUser.create(registeredUser);
 			
 			List<RegisteredUser> lOfRegisteredUser = (List<RegisteredUser>) hsqlRegisteredUser.read("dave123");
-			
 			assertTrue("Only one row was expected ", 1 == lOfRegisteredUser.size());
+			assertEquals("Incorrect AuthorityLevel ", "99", lOfRegisteredUser.get(0).getAuthorityLevel());
 			assertEquals("Incorrect username ", "dave123", lOfRegisteredUser.get(0).getUserId());
 			assertEquals("Incorrect email ", "dave@gmail.com", lOfRegisteredUser.get(0).getEmail());
 			assertEquals("Incorrect firstname ", "Dave", lOfRegisteredUser.get(0).getFirstname());
 			assertEquals("Incorrect lastname ", "Allen", lOfRegisteredUser.get(0).getLastname());
+			assertEquals("Incorrect password ", "kelly1233", lOfRegisteredUser.get(0).getPassword());
 			assertEquals("Incorrect telephone ", "0772 234654", lOfRegisteredUser.get(0).getTelephone());
+			System.out.println(lOfRegisteredUser.get(0).toString());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -81,28 +83,36 @@ public class TestHsqlRegisteredUser {
 			List<RegisteredUser> lOfRegisteredUser = (List<RegisteredUser>) hsqlRegisteredUser.readAll();
 			assertTrue("four rows were expected ", 4 == lOfRegisteredUser.size());
 
+			assertEquals("Incorrect AuthorityLevel ", "99", lOfRegisteredUser.get(0).getAuthorityLevel());
 			assertEquals("Incorrect username ", "dave123", lOfRegisteredUser.get(0).getUserId());
 			assertEquals("Incorrect email ", "dave@gmail.com", lOfRegisteredUser.get(0).getEmail());
 			assertEquals("Incorrect firstname ", "Dave", lOfRegisteredUser.get(0).getFirstname());
 			assertEquals("Incorrect lastname ", "Allen", lOfRegisteredUser.get(0).getLastname());
+			assertEquals("Incorrect password ", "kelly1233", lOfRegisteredUser.get(0).getPassword());
 			assertEquals("Incorrect telephone ", "0772 234654", lOfRegisteredUser.get(0).getTelephone());
 
+			assertEquals("Incorrect AuthorityLevel ", "99", lOfRegisteredUser.get(0).getAuthorityLevel());
 			assertEquals("Incorrect username ", "gordon456", lOfRegisteredUser.get(1).getUserId());
 			assertEquals("Incorrect email ", "gordon@gmail.com", lOfRegisteredUser.get(1).getEmail());
 			assertEquals("Incorrect firstname ", "gordon", lOfRegisteredUser.get(1).getFirstname());
 			assertEquals("Incorrect lastname ", "Mills", lOfRegisteredUser.get(1).getLastname());
+			assertEquals("Incorrect password ", "kelly1233", lOfRegisteredUser.get(0).getPassword());
 			assertEquals("Incorrect telephone ", "1111 4444444", lOfRegisteredUser.get(1).getTelephone());
 
+			assertEquals("Incorrect AuthorityLevel ", "99", lOfRegisteredUser.get(0).getAuthorityLevel());
 			assertEquals("Incorrect username ", "naiomi876", lOfRegisteredUser.get(2).getUserId());
 			assertEquals("Incorrect email ", "naiomi@gmail.com", lOfRegisteredUser.get(2).getEmail());
 			assertEquals("Incorrect firstname ", "naiomi", lOfRegisteredUser.get(2).getFirstname());
 			assertEquals("Incorrect lastname ", "Smith", lOfRegisteredUser.get(2).getLastname());
+			assertEquals("Incorrect password ", "kelly1233", lOfRegisteredUser.get(0).getPassword());
 			assertEquals("Incorrect telephone ", "2222 5555555", lOfRegisteredUser.get(2).getTelephone());
 
+			assertEquals("Incorrect AuthorityLevel ", "99", lOfRegisteredUser.get(0).getAuthorityLevel());
 			assertEquals("Incorrect username ", "rachel33", lOfRegisteredUser.get(3).getUserId());
 			assertEquals("Incorrect email ", "rachel@gmail.com", lOfRegisteredUser.get(3).getEmail());
 			assertEquals("Incorrect firstname ", "rachel", lOfRegisteredUser.get(3).getFirstname());
 			assertEquals("Incorrect lastname ", "scott", lOfRegisteredUser.get(3).getLastname());
+			assertEquals("Incorrect password ", "kelly1233", lOfRegisteredUser.get(0).getPassword());
 			assertEquals("Incorrect telephone ", "3333 6666666", lOfRegisteredUser.get(3).getTelephone());
 
 		} catch (SQLException e) {
@@ -118,51 +128,33 @@ public class TestHsqlRegisteredUser {
 			List<RegisteredUser> lOfRegisteredUser = (List<RegisteredUser>) hsqlRegisteredUser.readAll();
 			assertTrue("four rows were expected ", 4 == lOfRegisteredUser.size());
 
-			assertEquals("Incorrect username ", "dave123", lOfRegisteredUser.get(0).getUserId());
-			assertEquals("Incorrect email ", "dave@gmail.com", lOfRegisteredUser.get(0).getEmail());
-			assertEquals("Incorrect firstname ", "Dave", lOfRegisteredUser.get(0).getFirstname());
-			assertEquals("Incorrect lastname ", "Allen", lOfRegisteredUser.get(0).getLastname());
-			assertEquals("Incorrect telephone ", "0772 234654", lOfRegisteredUser.get(0).getTelephone());
-
-			assertEquals("Incorrect username ", "gordon456", lOfRegisteredUser.get(1).getUserId());
-			assertEquals("Incorrect email ", "gordon@gmail.com", lOfRegisteredUser.get(1).getEmail());
-			assertEquals("Incorrect firstname ", "gordon", lOfRegisteredUser.get(1).getFirstname());
-			assertEquals("Incorrect lastname ", "Mills", lOfRegisteredUser.get(1).getLastname());
-			assertEquals("Incorrect telephone ", "1111 4444444", lOfRegisteredUser.get(1).getTelephone());
-
-			assertEquals("Incorrect username ", "naiomi876", lOfRegisteredUser.get(2).getUserId());
-			assertEquals("Incorrect email ", "naiomi@gmail.com", lOfRegisteredUser.get(2).getEmail());
-			assertEquals("Incorrect firstname ", "naiomi", lOfRegisteredUser.get(2).getFirstname());
-			assertEquals("Incorrect lastname ", "Smith", lOfRegisteredUser.get(2).getLastname());
-			assertEquals("Incorrect telephone ", "2222 5555555", lOfRegisteredUser.get(2).getTelephone());
-
-			assertEquals("Incorrect username ", "rachel33", lOfRegisteredUser.get(3).getUserId());
-			assertEquals("Incorrect email ", "rachel@gmail.com", lOfRegisteredUser.get(3).getEmail());
-			assertEquals("Incorrect firstname ", "rachel", lOfRegisteredUser.get(3).getFirstname());
-			assertEquals("Incorrect lastname ", "scott", lOfRegisteredUser.get(3).getLastname());
-			assertEquals("Incorrect telephone ", "3333 6666666", lOfRegisteredUser.get(3).getTelephone());
-
 			hsqlRegisteredUser.delete("naiomi876");
 
 			lOfRegisteredUser = (List<RegisteredUser>) hsqlRegisteredUser.readAll();
 			assertTrue("three rows were expected ", 3 == lOfRegisteredUser.size());
 
+			assertEquals("Incorrect AuthorityLevel ", "99", lOfRegisteredUser.get(0).getAuthorityLevel());
 			assertEquals("Incorrect username ", "dave123", lOfRegisteredUser.get(0).getUserId());
 			assertEquals("Incorrect email ", "dave@gmail.com", lOfRegisteredUser.get(0).getEmail());
 			assertEquals("Incorrect firstname ", "Dave", lOfRegisteredUser.get(0).getFirstname());
 			assertEquals("Incorrect lastname ", "Allen", lOfRegisteredUser.get(0).getLastname());
+			assertEquals("Incorrect password ", "kelly1233", lOfRegisteredUser.get(0).getPassword());
 			assertEquals("Incorrect telephone ", "0772 234654", lOfRegisteredUser.get(0).getTelephone());
 
+			assertEquals("Incorrect AuthorityLevel ", "99", lOfRegisteredUser.get(0).getAuthorityLevel());
 			assertEquals("Incorrect username ", "gordon456", lOfRegisteredUser.get(1).getUserId());
 			assertEquals("Incorrect email ", "gordon@gmail.com", lOfRegisteredUser.get(1).getEmail());
 			assertEquals("Incorrect firstname ", "gordon", lOfRegisteredUser.get(1).getFirstname());
 			assertEquals("Incorrect lastname ", "Mills", lOfRegisteredUser.get(1).getLastname());
+			assertEquals("Incorrect password ", "kelly1233", lOfRegisteredUser.get(0).getPassword());
 			assertEquals("Incorrect telephone ", "1111 4444444", lOfRegisteredUser.get(1).getTelephone());
 
+			assertEquals("Incorrect AuthorityLevel ", "99", lOfRegisteredUser.get(0).getAuthorityLevel());
 			assertEquals("Incorrect username ", "rachel33", lOfRegisteredUser.get(2).getUserId());
 			assertEquals("Incorrect email ", "rachel@gmail.com", lOfRegisteredUser.get(2).getEmail());
 			assertEquals("Incorrect firstname ", "rachel", lOfRegisteredUser.get(2).getFirstname());
 			assertEquals("Incorrect lastname ", "scott", lOfRegisteredUser.get(2).getLastname());
+			assertEquals("Incorrect password ", "kelly1233", lOfRegisteredUser.get(0).getPassword());
 			assertEquals("Incorrect telephone ", "3333 6666666", lOfRegisteredUser.get(2).getTelephone());
 
 		} catch (SQLException e) {
@@ -178,49 +170,28 @@ public class TestHsqlRegisteredUser {
 			List<RegisteredUser> lOfRegisteredUser = (List<RegisteredUser>) hsqlRegisteredUser.readAll();
 			assertTrue("four rows were expected ", 4 == lOfRegisteredUser.size());
 
-			assertEquals("Incorrect username ", "dave123", lOfRegisteredUser.get(0).getUserId());
-			assertEquals("Incorrect email ", "dave@gmail.com", lOfRegisteredUser.get(0).getEmail());
-			assertEquals("Incorrect firstname ", "Dave", lOfRegisteredUser.get(0).getFirstname());
-			assertEquals("Incorrect lastname ", "Allen", lOfRegisteredUser.get(0).getLastname());
-			assertEquals("Incorrect telephone ", "0772 234654", lOfRegisteredUser.get(0).getTelephone());
+			RegisteredUser registeredUser = new RegisteredUser.RegisteredUserBuilder().authorityLevel("")
+					.userId("dave123").email("dave@yahoo.co.uk").firstname("").lastname("").password("").telephone("")
+					.build();
 
-			assertEquals("Incorrect username ", "gordon456", lOfRegisteredUser.get(1).getUserId());
-			assertEquals("Incorrect email ", "gordon@gmail.com", lOfRegisteredUser.get(1).getEmail());
-			assertEquals("Incorrect firstname ", "gordon", lOfRegisteredUser.get(1).getFirstname());
-			assertEquals("Incorrect lastname ", "Mills", lOfRegisteredUser.get(1).getLastname());
-			assertEquals("Incorrect telephone ", "1111 4444444", lOfRegisteredUser.get(1).getTelephone());
-
-			assertEquals("Incorrect username ", "naiomi876", lOfRegisteredUser.get(2).getUserId());
-			assertEquals("Incorrect email ", "naiomi@gmail.com", lOfRegisteredUser.get(2).getEmail());
-			assertEquals("Incorrect firstname ", "naiomi", lOfRegisteredUser.get(2).getFirstname());
-			assertEquals("Incorrect lastname ", "Smith", lOfRegisteredUser.get(2).getLastname());
-			assertEquals("Incorrect telephone ", "2222 5555555", lOfRegisteredUser.get(2).getTelephone());
-
-			assertEquals("Incorrect username ", "rachel33", lOfRegisteredUser.get(3).getUserId());
-			assertEquals("Incorrect email ", "rachel@gmail.com", lOfRegisteredUser.get(3).getEmail());
-			assertEquals("Incorrect firstname ", "rachel", lOfRegisteredUser.get(3).getFirstname());
-			assertEquals("Incorrect lastname ", "scott", lOfRegisteredUser.get(3).getLastname());
-			assertEquals("Incorrect telephone ", "3333 6666666", lOfRegisteredUser.get(3).getTelephone());
-			
-			
-			
-			RegisteredUser registeredUser = new RegisteredUser.RegisteredUserBuilder().userId("dave123").email("dave@yahoo.co.uk")
-					.firstname("").lastname("").telephone("").build();
 			hsqlRegisteredUser.update(registeredUser);
 
 			lOfRegisteredUser = (List<RegisteredUser>) hsqlRegisteredUser.read("dave123");
 			assertTrue("Only one row was expected ", 1 == lOfRegisteredUser.size());
+			
 			assertEquals("Incorrect username ", "dave123", lOfRegisteredUser.get(0).getUserId());
 			assertEquals("Incorrect email ", "dave@yahoo.co.uk", lOfRegisteredUser.get(0).getEmail());
 			assertEquals("Incorrect firstname ", "Dave", lOfRegisteredUser.get(0).getFirstname());
 			assertEquals("Incorrect lastname ", "Allen", lOfRegisteredUser.get(0).getLastname());
 			assertEquals("Incorrect telephone ", "0772 234654", lOfRegisteredUser.get(0).getTelephone());
+			
+			registeredUser = new RegisteredUser.RegisteredUserBuilder().authorityLevel("")
+					.userId("dave123").email("").firstname("Roger").lastname("").password("").telephone("")
+					.build();
 
-			registeredUser = new RegisteredUser.RegisteredUserBuilder().userId("dave123").email("")
-					.firstname("Roger").lastname("").telephone("").build();
 			hsqlRegisteredUser.update(registeredUser);
-
 			lOfRegisteredUser = (List<RegisteredUser>) hsqlRegisteredUser.read("dave123");
+
 			assertTrue("Only one row was expected ", 1 == lOfRegisteredUser.size());
 			assertEquals("Incorrect username ", "dave123", lOfRegisteredUser.get(0).getUserId());
 			assertEquals("Incorrect email ", "dave@yahoo.co.uk", lOfRegisteredUser.get(0).getEmail());
@@ -228,11 +199,13 @@ public class TestHsqlRegisteredUser {
 			assertEquals("Incorrect lastname ", "Allen", lOfRegisteredUser.get(0).getLastname());
 			assertEquals("Incorrect telephone ", "0772 234654", lOfRegisteredUser.get(0).getTelephone());
 			
-			registeredUser = new RegisteredUser.RegisteredUserBuilder().userId("dave123").email("")
-					.firstname("").lastname("Johnson").telephone("").build();
-			hsqlRegisteredUser.update(registeredUser);
+			registeredUser = new RegisteredUser.RegisteredUserBuilder().authorityLevel("")
+					.userId("dave123").email("").firstname("").lastname("Johnson").password("").telephone("")
+					.build();
 
+			hsqlRegisteredUser.update(registeredUser);
 			lOfRegisteredUser = (List<RegisteredUser>) hsqlRegisteredUser.read("dave123");
+
 			assertTrue("Only one row was expected ", 1 == lOfRegisteredUser.size());
 			assertEquals("Incorrect username ", "dave123", lOfRegisteredUser.get(0).getUserId());
 			assertEquals("Incorrect email ", "dave@yahoo.co.uk", lOfRegisteredUser.get(0).getEmail());
@@ -240,20 +213,25 @@ public class TestHsqlRegisteredUser {
 			assertEquals("Incorrect lastname ", "Johnson", lOfRegisteredUser.get(0).getLastname());
 			assertEquals("Incorrect telephone ", "0772 234654", lOfRegisteredUser.get(0).getTelephone());
 			
-			registeredUser = new RegisteredUser.RegisteredUserBuilder().userId("dave123").email("")
-					.firstname("").lastname("").telephone("9999 999999").build();
+			registeredUser = new RegisteredUser.RegisteredUserBuilder().authorityLevel("")
+					.userId("dave123").email("").firstname("").lastname("").password("").telephone("9999 999999")
+					.build();
+
 			hsqlRegisteredUser.update(registeredUser);
 
 			lOfRegisteredUser = (List<RegisteredUser>) hsqlRegisteredUser.read("dave123");
+
 			assertTrue("Only one row was expected ", 1 == lOfRegisteredUser.size());
 			assertEquals("Incorrect username ", "dave123", lOfRegisteredUser.get(0).getUserId());
 			assertEquals("Incorrect email ", "dave@yahoo.co.uk", lOfRegisteredUser.get(0).getEmail());
 			assertEquals("Incorrect firstname ", "Roger", lOfRegisteredUser.get(0).getFirstname());
 			assertEquals("Incorrect lastname ", "Johnson", lOfRegisteredUser.get(0).getLastname());
 			assertEquals("Incorrect telephone ", "9999 999999", lOfRegisteredUser.get(0).getTelephone());
+			
+			registeredUser = new RegisteredUser.RegisteredUserBuilder().authorityLevel("01")
+					.userId("naiomi876").email("susan@gmail.com").firstname("susan").lastname("jones").password("willywonka").telephone("9999 999999")
+					.build();
 
-			registeredUser = new RegisteredUser.RegisteredUserBuilder().userId("naiomi876").email("susan@gmail.com")
-					.firstname("susan").lastname("jones").telephone("5555 555555").build();
 			hsqlRegisteredUser.update(registeredUser);
 
 			lOfRegisteredUser = (List<RegisteredUser>) hsqlRegisteredUser.read("naiomi876");
@@ -262,7 +240,8 @@ public class TestHsqlRegisteredUser {
 			assertEquals("Incorrect email ", "susan@gmail.com", lOfRegisteredUser.get(0).getEmail());
 			assertEquals("Incorrect firstname ", "susan", lOfRegisteredUser.get(0).getFirstname());
 			assertEquals("Incorrect lastname ", "jones", lOfRegisteredUser.get(0).getLastname());
-			assertEquals("Incorrect telephone ", "5555 555555", lOfRegisteredUser.get(0).getTelephone());
+			assertEquals("Incorrect telephone ", "9999 999999", lOfRegisteredUser.get(0).getTelephone());
+
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

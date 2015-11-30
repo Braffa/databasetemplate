@@ -1,8 +1,14 @@
+.settings
 *.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
+HSQLtestdb.tmp
+target
+.classpath
+.project
+HSQLtestdb.lck
+HSQLtestdb.log
+HSQLtestdb.properties
+HSQLtestdb.script
+sql.txt
 # Package Files #
 *.jar
 *.war

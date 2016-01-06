@@ -1,0 +1,9 @@
+com\braffa\sellem\model\sql\Product$1.class
+com\braffa\sellem\model\sql\RegisteredUser$1.class
+com\braffa\sellem\hbn\DaoFactory$1.class
+com\braffa\sellem\model\xml\ProductXml$1.class
+com\braffa\sellem\model\xml\RegisteredUserXml$1.class
+com\braffa\sellem\model\hbn\ProductHbn$1.class
+com\braffa\sellem\model\xml\UserToProductXml$1.class
+com\braffa\sellem\model\sql\UserToProduct$1.class
+com\braffa\sellem\model\hbn\RegisteredUserHbn$1.class
